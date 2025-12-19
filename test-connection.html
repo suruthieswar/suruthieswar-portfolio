@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Test Backend Connection</h2>
+  <button onclick="testConnection()">Test Connection</button>
+  <div id="result"></div>
+  
+  <script>
+    async function testConnection() {
+      const result = document.getElementById('result');
+      
+      // Test 1: Direct connection
+      try {
+        const health = await fetch('http://localhost:5000/api/health');
+        const data = await health.json();
+        result.innerHTML += `<p style="color:green">✅ Backend: ${data.status}</p>`;
+      } catch (err) {
+        result.innerHTML += `<p style="color:red">❌ Backend not reachable</p>`;
+      }
+      
+      // Test 2: Through proxy
+      try {
+        const proxyTest = await fetch('/api/health');
+        const proxyData = await proxyTest.json();
+        result.innerHTML += `<p style="color:green">✅ Proxy: Working</p>`;
+      } catch (err) {
+        result.innerHTML += `<p style="color:red">❌ Proxy not working</p>`;
+      }
+      
+      // Test 3: Send test message
+      try {
+        const testMsg = await fetch('http://localhost:5000/api/contact', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            name: 'Test from HTML',
+            email: 'test@html.com',
+            message: 'Testing direct connection'
+          })
+        });
+        const msgResult = await testMsg.json();
+        result.innerHTML += `<p style="color:green">✅ Message sent: ${msgResult.message}</p>`;
+      } catch (err) {
+        result.innerHTML += `<p style="color:red">❌ Cannot send message: ${err.message}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
