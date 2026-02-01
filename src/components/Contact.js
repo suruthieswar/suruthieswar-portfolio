@@ -80,8 +80,7 @@ const Contact = () => {
       console.log('✅ SERVER RESPONSE:', result);
 
       if (result.success) {
-        const tokenMsg = result.submissionToken ? ` Your Reference ID is: ${result.submissionToken}` : '';
-        setStatus(`✅ Thank you! Your message has been sent successfully.${tokenMsg} I'll get back to you soon.`);
+        setStatus(`✅ Thank you! Message sent successfully.`);
 
         // Clear form
         setFormData({
@@ -126,9 +125,9 @@ const Contact = () => {
             {/* ADDED HEADING AND NAME HERE */}
             <div className="contact-header">
               <h2 className="contact-heading">Get in Touch</h2>
-              <h3 className="contact-name">Suruthi E</h3>
+              <h3 className="contact-name">SURUTHI E</h3>
             </div>
-            
+
             <div className="info-item">
               <div className="info-icon">
                 <i className="fas fa-map-marker-alt"></i>
@@ -155,7 +154,11 @@ const Contact = () => {
               </div>
               <div className="info-details">
                 <h3>Email</h3>
-                <p>suruthieswaramoorthi@gmail.com</p>
+                <p>
+                  <a href="mailto:suruthieswaramoorthi@gmail.com" className="email-link">
+                    suruthieswaramoorthi@gmail.com
+                  </a>
+                </p>
               </div>
             </div>
 

@@ -118,8 +118,7 @@ const Skills = () => {
           </div>
         </div>
 
-
-
+        {/* LANGUAGES CARD - SEPARATE BUT IN SAME ROW */}
         <div className="skills-languages card animate-on-scroll">
           <h3>Languages</h3>
           <div className="language-items">

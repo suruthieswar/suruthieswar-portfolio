@@ -37,7 +37,7 @@ function App() {
 
       <footer className="footer">
         <div className="footer-content">
-          <p>© 2024 Suruthi E. All rights reserved.</p>
+          <p>© 2024 SURUTHI E. All rights reserved.</p>
           <div className="footer-links">
             <a href="https://github.com/suruthieswar" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-github"></i>

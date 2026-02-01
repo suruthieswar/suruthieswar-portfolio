@@ -39,13 +39,14 @@ const Hero = () => {
 
     createParticles();
 
-    // Typing animation that runs only once - CHANGED TO "Suruthi E"
-    const text = "Suruthi E";
+    // Typing animation that runs only once
+    const text = "SURUTHI E";
     let i = 0;
+    setDisplayText(''); // Reset at start
 
     const typingInterval = setInterval(() => {
       if (i < text.length) {
-        setDisplayText(prev => prev + text.charAt(i));
+        setDisplayText(text.substring(0, i + 1));
         i++;
       } else {
         clearInterval(typingInterval);
@@ -81,8 +82,8 @@ const Hero = () => {
             <div className="profile-image">
               {/* Updated avatar with correct name */}
               <img
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Suruthi%20E&backgroundColor=6366f1&hair=longHair&hairColor=8b5cf6&facialHair=blank&clothes=shirtVNeck&clothesColor=3b82f6&eyes=default&eyebrow=default&mouth=default&skin=light"
-                alt="Suruthi E"
+                src="/profile.jpg"
+                alt="SURUTHI E"
                 className="profile-avatar"
               />
               <div className="profile-glow"></div>

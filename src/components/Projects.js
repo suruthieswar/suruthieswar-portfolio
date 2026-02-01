@@ -123,15 +123,15 @@ const Projects = () => {
 
           <div className="projects-stats">
             <div className="stat">
-              <div className="stat-number">20+</div>
+              <div className="stat-number">3+</div>
               <div className="stat-label">Total Projects</div>
             </div>
             <div className="stat">
-              <div className="stat-number">15+</div>
+              <div className="stat-number">10+</div>
               <div className="stat-label">Technologies</div>
             </div>
             <div className="stat">
-              <div className="stat-number">100%</div>
+              <div className="stat-number">3</div>
               <div className="stat-label">Completion</div>
             </div>
           </div>
@@ -236,6 +236,33 @@ const Projects = () => {
               </div>
               <h4>Deployment</h4>
               <p>Seamless deployment with continuous integration and testing.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Core Tech Stack Shelf */}
+        <div className="tech-shelf-container card animate-on-scroll">
+          <h3>Core Technology Stack</h3>
+          <div className="tech-shelf-wrapper">
+            <div className="tech-shelf">
+              {/* First Set */}
+              <div className="tech-shelf-item"><i className="fab fa-react react-icon"></i><span>React</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-node-js node-icon"></i><span>Node.js</span></div>
+              <div className="tech-shelf-item"><i className="fas fa-database mongo-icon"></i><span>MongoDB</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-python python-icon"></i><span>Python</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-html5 html-icon"></i><span>HTML5</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-css3-alt css-icon"></i><span>CSS3</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-js-square js-icon"></i><span>JavaScript</span></div>
+              <div className="tech-shelf-item"><i className="fas fa-brain ai-icon"></i><span>AI/ML</span></div>
+              {/* Duplicate Set for seamless loop */}
+              <div className="tech-shelf-item"><i className="fab fa-react react-icon"></i><span>React</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-node-js node-icon"></i><span>Node.js</span></div>
+              <div className="tech-shelf-item"><i className="fas fa-database mongo-icon"></i><span>MongoDB</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-python python-icon"></i><span>Python</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-html5 html-icon"></i><span>HTML5</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-css3-alt css-icon"></i><span>CSS3</span></div>
+              <div className="tech-shelf-item"><i className="fab fa-js-square js-icon"></i><span>JavaScript</span></div>
+              <div className="tech-shelf-item"><i className="fas fa-brain ai-icon"></i><span>AI/ML</span></div>
             </div>
           </div>
         </div>
