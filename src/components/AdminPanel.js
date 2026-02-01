@@ -16,7 +16,8 @@ const AdminPanel = ({ isAuthenticated, onLogout }) => {
   const fetchMessages = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/contacts', {
+      const API_BASE_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000' : '';
+      const response = await axios.get(`${API_BASE_URL}/api/contacts`, {
         withCredentials: true
       });
 

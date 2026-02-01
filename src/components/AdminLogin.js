@@ -23,7 +23,8 @@ const AdminLogin = ({ onLoginSuccess }) => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/admin/login', credentials, {
+      const API_BASE_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000' : '';
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, credentials, {
         withCredentials: true
       });
 
@@ -47,7 +48,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
             <h2>Admin Login</h2>
             <p>Access your messages dashboard</p>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
               <label htmlFor="username">Username</label>
@@ -63,7 +64,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
                 autoComplete="username"
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
@@ -78,14 +79,14 @@ const AdminLogin = ({ onLoginSuccess }) => {
                 autoComplete="current-password"
               />
             </div>
-            
+
             {error && (
               <div className="login-error">
                 <i className="fas fa-exclamation-triangle"></i>
                 {error}
               </div>
             )}
-            
+
             <button type="submit" className="login-btn" disabled={loading}>
               {loading ? (
                 <>
@@ -96,7 +97,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
                 'Sign In'
               )}
             </button>
-            
+
             <div className="login-info">
               <p><strong>Default credentials:</strong></p>
               <p>Username: <code>admin</code></p>
@@ -105,7 +106,7 @@ const AdminLogin = ({ onLoginSuccess }) => {
             </div>
           </form>
         </div>
-        
+
         <div className="login-sidebar">
           <h3>Messages Dashboard Features</h3>
           <ul className="features-list">

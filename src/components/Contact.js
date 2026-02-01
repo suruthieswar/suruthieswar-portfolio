@@ -2,8 +2,8 @@
 import './Contact.css';
 
 const Contact = () => {
-  // Backend URL - CHANGE THIS IF NEEDED
-  const API_BASE_URL = 'http://localhost:5000';
+  // Backend URL - Dynamic for local and production
+  const API_BASE_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000' : '';
 
   const [formData, setFormData] = useState({
     name: '',
