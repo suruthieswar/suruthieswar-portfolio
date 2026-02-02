@@ -420,28 +420,33 @@ app.get('/', (req, res) => {
 
 // ==================== SERVER START ====================
 
-app.listen(5000, '0.0.0.0', async () => {
-  console.log(`
-  ========================================
-  ðŸš€ PORTFOLIO BACKEND
-  ========================================
-  ðŸ“ Port: ${PORT}
-  ðŸ”— Database: calc
-  ðŸ“ Collections: contacts, admins
-  ðŸ” JWT: Tokens stored IN contacts
-  ðŸ‘¤ Admin: admin / admin123
-  ðŸŒ Local: http://localhost:${PORT}
-  ========================================
-  
-  ðŸ”‘ Login: POST /api/auth/login
-  ðŸ“¨ Send: POST /api/contact (include token in body)
-  ðŸ”’ View: GET /api/contacts (Authorization header)
-  ðŸ“Š Stats: GET /api/stats
-  ========================================
-  `);
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(5000, '0.0.0.0', async () => {
+    console.log(`
+    ========================================
+    ðŸš€ PORTFOLIO BACKEND
+    ========================================
+    ðŸ“ Port: ${PORT}
+    ðŸ”— Database: calc
+    ðŸ“ Collections: contacts, admins
+    ðŸ” JWT: Tokens stored IN contacts
+    ðŸ‘¤ Admin: admin / admin123
+    ðŸŒ Local: http://localhost:${PORT}
+    ========================================
+    
+    ðŸ”‘ Login: POST /api/auth/login
+    ðŸ“¨ Send: POST /api/contact (include token in body)
+    ðŸ”’ View: GET /api/contacts (Authorization header)
+    ðŸ“Š Stats: GET /api/stats
+    ========================================
+    `);
 
-  await createDefaultAdmin();
-});
+    await createDefaultAdmin();
+  });
+} else {
+  // In production (Vercel), we still want to ensure the default admin exists
+  createDefaultAdmin().catch(err => console.error('Error creating default admin:', err));
+}
 
 // Handle errors
 app.use((err, req, res, next) => {

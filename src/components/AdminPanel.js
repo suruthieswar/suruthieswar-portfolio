@@ -34,7 +34,7 @@ const AdminPanel = ({ isAuthenticated, onLogout }) => {
 
   const markAsRead = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/api/contacts/${id}/read`, {}, {
+      await axios.put(`${API_BASE_URL}/api/contacts/${id}/read`, {}, {
         withCredentials: true
       });
 
@@ -49,7 +49,8 @@ const AdminPanel = ({ isAuthenticated, onLogout }) => {
   const deleteMessage = async (id) => {
     if (window.confirm('Are you sure you want to delete this message?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/contacts/${id}`, {
+        const API_BASE_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000' : '';
+        await axios.delete(`${API_BASE_URL}/api/contacts/${id}`, {
           withCredentials: true
         });
 
