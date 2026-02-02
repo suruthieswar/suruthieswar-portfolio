@@ -13,9 +13,6 @@ const PORT = process.env.PORT || 5000;
 app.use(cors()); // Allow all for simplicity in deployment, or configure properly later
 app.use(bodyParser.json());
 
-// Export the app for Vercel
-module.exports = app;
-
 // MongoDB Connection - Connect to CALC database
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/portfolio';
 
@@ -457,3 +454,6 @@ app.use((err, req, res, next) => {
     error: err.message
   });
 });
+
+// Export the app for Vercel (exported at the end to ensure all routes are registered)
+module.exports = app;
